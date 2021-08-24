@@ -1,0 +1,24 @@
+#!/bin/bash
+# dmake image [PATH] [SCRIPT]
+if [ $# -eq 1 ]
+then
+    IMAGE=$1
+    TARGET=$PWD
+    CMD="make"
+elif [ $# -eq 2 ]
+then
+    IMAGE=$1
+    TARGET=`realpath $2`
+    CMD="make"
+elif [ $# -eq 3 ]
+then
+    IMAGE=$1
+    TARGET=`realpath $2`
+    CMD=$3
+else
+    echo "Usage] dmake [PATH] [SCRIPT]"
+    echo "e.g. dmake ./my_repo \"./autogen\""
+    exit 1
+fi
+
+docker run -v $TARGET:/build -w="/build" --rm -it $1 sh -c $3
