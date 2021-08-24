@@ -21,4 +21,4 @@ else
     exit 1
 fi
 
-docker run -v $TARGET:/build -w="/build" --rm -it $1 sh -c $3
+docker run -v $TARGET:/build -w="/build" --rm -it $IMAGE sh -c $CMD
