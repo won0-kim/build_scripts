@@ -13,3 +13,5 @@ maked debian . make
 maked arm64v8/ubuntu ./src "./cofigure && make"
 maked mybuild/android /path/to/aosp "source build/envsetup.sh; m com.example.test"
 </pre>
+
+by won0
